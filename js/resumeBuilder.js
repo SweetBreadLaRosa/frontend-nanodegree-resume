@@ -24,7 +24,7 @@ let bio = {
         twitter: 'none',
         location: 'Seattle'
     },
-    welcomeMessage: 'Hello World!',
+    welcomeMessage: 'Welcome to my resume!',
     skills: ['programming', 'basketball', 'eating'],
     biopic: 'images/me.jpg',
     display: () => {
@@ -33,11 +33,18 @@ let bio = {
 
         $('#header').prepend(formattedRole);
         $('#header').prepend(formattedName);
-        $('#header').append(HTMLmobile.replace(data, bio.contacts.mobile));
-        $('#header').append(HTMLemail.replace(data, bio.contacts.email));
-        $('#header').append(HTMLgithub.replace(data, bio.contacts.github));
-        $('#header').append(HTMLtwitter.replace(data, bio.contacts.twitter));
-        $('#header').append(HTMLlocation.replace(data, bio.contacts.location));
+
+        $('#topContacts').append(HTMLmobile.replace(data, bio.contacts.mobile));
+        $('#topContacts').append(HTMLemail.replace(data, bio.contacts.email));
+        $('#topContacts').append(HTMLgithub.replace(data, bio.contacts.github));
+        $('#topContacts').append(HTMLtwitter.replace(data, bio.contacts.twitter));
+        $('#topContacts').append(HTMLlocation.replace(data, bio.contacts.location));
+
+        $('#footerContacts').append(HTMLmobile.replace(data, bio.contacts.mobile));
+        $('#footerContacts').append(HTMLemail.replace(data, bio.contacts.email));
+        $('#footerContacts').append(HTMLgithub.replace(data, bio.contacts.github));
+        $('#footerContacts').append(HTMLtwitter.replace(data, bio.contacts.twitter));
+        $('#footerContacts').append(HTMLlocation.replace(data, bio.contacts.location));
 
         $('#header').append(HTMLbioPic.replace(data, bio.biopic)).
         append(HTMLwelcomeMsg.replace(data, bio.welcomeMessage)).append(HTMLskillsStart);
