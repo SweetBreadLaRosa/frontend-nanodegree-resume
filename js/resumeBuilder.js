@@ -71,7 +71,7 @@ work.jobs.forEach(job => {
         .append(HTMLworkTitle.replace(data, job.position))
         .append(HTMLworkDates.replace(data, job.dates))
         .append(HTMLworkLocation.replace(data, job.location))
-        .append(HTMLworkDescription.replace(data, job.description))
+        .append(HTMLworkDescription.replace(data, job.description));
 });
 
 let education = {
@@ -144,7 +144,7 @@ let education = {
             $(".education-entry:last").append(HTMLonlineTitle.replace(data, onlineCourse.title))
                 .append(HTMLonlineSchool.replace(data, onlineCourse.school))
                 .append(HTMLschoolDates.replace(data, onlineCourse.dates))
-                .append(HTMLonlineURL.replace(data, onlineCourse.url))
+                .append(HTMLonlineURL.replace(data, onlineCourse.url));
         });
     }
 };
