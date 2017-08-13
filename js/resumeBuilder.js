@@ -95,6 +95,12 @@ let education = {
     ],
     onlineCourses: [
         {
+            title: 'C# Programming Certificate',
+            school: 'University of Washington',
+            dates: '2015',
+            url: 'https://www.pce.uw.edu'
+        },
+        {
             title: 'Front-End Web Developer Nanodegree',
             school: 'Udacity',
             dates: '3-20-2017',
