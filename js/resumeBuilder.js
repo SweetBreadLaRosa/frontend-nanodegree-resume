@@ -34,17 +34,11 @@ let bio = {
         $('#header').prepend(formattedRole);
         $('#header').prepend(formattedName);
 
-        $('#topContacts').append(HTMLmobile.replace(data, bio.contacts.mobile));
-        $('#topContacts').append(HTMLemail.replace(data, bio.contacts.email));
-        $('#topContacts').append(HTMLgithub.replace(data, bio.contacts.github));
-        $('#topContacts').append(HTMLtwitter.replace(data, bio.contacts.twitter));
-        $('#topContacts').append(HTMLlocation.replace(data, bio.contacts.location));
-
-        $('#footerContacts').append(HTMLmobile.replace(data, bio.contacts.mobile));
-        $('#footerContacts').append(HTMLemail.replace(data, bio.contacts.email));
-        $('#footerContacts').append(HTMLgithub.replace(data, bio.contacts.github));
-        $('#footerContacts').append(HTMLtwitter.replace(data, bio.contacts.twitter));
-        $('#footerContacts').append(HTMLlocation.replace(data, bio.contacts.location));
+        $('#topContacts, #footerContacts').append(HTMLmobile.replace(data, bio.contacts.mobile));
+        $('#topContacts, #footerContacts').append(HTMLemail.replace(data, bio.contacts.email));
+        $('#topContacts, #footerContacts').append(HTMLgithub.replace(data, bio.contacts.github));
+        $('#topContacts, #footerContacts').append(HTMLtwitter.replace(data, bio.contacts.twitter));
+        $('#topContacts, #footerContacts').append(HTMLlocation.replace(data, bio.contacts.location));
 
         $('#header').append(HTMLbioPic.replace(data, bio.biopic)).
         append(HTMLwelcomeMsg.replace(data, bio.welcomeMessage)).append(HTMLskillsStart);
@@ -57,22 +51,23 @@ let bio = {
 
 let work = {
     jobs: [{
-        position: 'Software Engineer',
+        title: 'Software Engineer',
         employer: 'Apex Learning',
         dates: '5 years ',
         location: 'Seattle',
-        description: 'Full Stack Developer'
-    }]
+        description: 'Full Stack Developer',
+    }],
+    display: () => {
+        $("#workExperience").append(HTMLworkStart);
+        work.jobs.forEach(job => {
+            $(".work-entry").append(HTMLworkEmployer.replace(data, job.employer))
+                .append(HTMLworkTitle.replace(data, job.title))
+                .append(HTMLworkDates.replace(data, job.dates))
+                .append(HTMLworkLocation.replace(data, job.location))
+                .append(HTMLworkDescription.replace(data, job.description));
+        });
+    }
 };
-
-$("#workExperience").append(HTMLworkStart);
-work.jobs.forEach(job => {
-    $(".work-entry").append(HTMLworkEmployer.replace(data, job.employer))
-        .append(HTMLworkTitle.replace(data, job.position))
-        .append(HTMLworkDates.replace(data, job.dates))
-        .append(HTMLworkLocation.replace(data, job.location))
-        .append(HTMLworkDescription.replace(data, job.description));
-});
 
 let education = {
     schools: [
@@ -181,4 +176,5 @@ let maps = {
 bio.display();
 education.display();
 projects.display();
+work.display();
 maps.display();
